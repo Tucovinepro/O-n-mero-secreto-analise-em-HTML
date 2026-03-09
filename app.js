@@ -1,9 +1,19 @@
-let titulo = document.querySelector('h1');
-titulo.innerHTML = 'Jogo do número secreto';
+let numerosecreto = gerarnumerosecreto();
 
-let paragrafo = document.querySelector('p');
-paragrafo.innerHTML = 'Escolha um número entre 1 e 10';
+function exibirtextonatela(tag, texto){
+let campo = document.querySelector(tag)
+ campo.innerHTML = texto
+
+}
+
+exibirtextonatela('h1', "Jogo do número secreto")
+exibirtextonatela('p',"Escolha um número entre 1 e 100" )
 
 function verificarChute() {
-  console.log('O botão foi clicado!');
+    console.log(numerosecreto);
+}
+
+function gerarnumerosecreto(){
+   return parseInt(Math.random() * 10 + 1)
+    
 }
