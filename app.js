@@ -9,7 +9,8 @@ exibirtextonatela('h1', "Jogo do número secreto")
 exibirtextonatela('p',"Escolha um número entre 1 e 10" )
 
 function verificarChute() {
-    console.log(numerosecreto);
+  let chute = document.querySelector("input").value;
+    console.log(chute == numerosecreto);
 }
 
 function gerarNumeroSecreto(){
