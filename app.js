@@ -6,8 +6,13 @@ let campo = document.querySelector(tag)
  campo.innerHTML = texto
 }
 
-exibirtextonatela('h1', "Jogo do número secreto")
-exibirtextonatela('p',"Escolha um número entre 1 e 10" )
+function exibirMensagemInicial(){
+  exibirtextonatela('h1', "Jogo do número secreto")
+  exibirtextonatela('p',"Escolha um número entre 1 e 10" )
+
+}
+
+exibirMensagemInicial();
 
 function verificarChute() {
   let chute = document.querySelector("input").value;
@@ -17,6 +22,7 @@ function verificarChute() {
       let palavraTentativa = tentativas < 1 ? 'tentativas' : 'tentativa';
       let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}`
       exibirtextonatela("p", mensagemTentativas)
+      document.getElementById("reiniciar").removeAttribute('disabled');
     } else {
       if (chute > numerosecreto) {
         exibirtextonatela("p", "O numero secreto é menor")
@@ -25,6 +31,7 @@ function verificarChute() {
         exibirtextonatela("p", "O numero secreto é maior")
       }
      tentativas++
+     limparcampo();
       
     }
   
@@ -40,3 +47,17 @@ function gerarNumeroSecreto(){
    return parseInt(Math.random()*10+1)
     
 }
+
+function limparcampo(){
+  chute = document.querySelector("input");
+  chute.value = '';
+}
+
+function reiniciarJogo(){
+       numerosecreto = gerarNumeroSecreto();
+       exibirMensagemInicial()
+       limparcampo();
+       tentativas = 1;
+
+}
+
