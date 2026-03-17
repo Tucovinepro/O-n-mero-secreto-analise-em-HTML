@@ -58,6 +58,7 @@ function reiniciarJogo(){
        exibirMensagemInicial()
        limparcampo();
        tentativas = 1;
+       document.getElementById('reiniciar').setAttribute("disabled",true)
 
 }
 
