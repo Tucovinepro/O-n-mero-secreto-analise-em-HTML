@@ -1,4 +1,5 @@
 let numerosecreto = gerarNumeroSecreto();
+let tentativas = 1;
 
 function exibirtextonatela(tag, texto){
 let campo = document.querySelector(tag)
@@ -13,7 +14,9 @@ function verificarChute() {
 
     if (chute == numerosecreto) {
       exibirtextonatela("h1", "Acertou!")
-      exibirtextonatela("p", "Você acertou o número secreto")
+      let palavraTentativa = tentativas < 1 ? 'tentativas' : 'tentativa';
+      let mensagemTentativas = `Você descobriu o número secreto com ${tentativas} ${palavraTentativa}`
+      exibirtextonatela("p", mensagemTentativas)
     } else {
       if (chute > numerosecreto) {
         exibirtextonatela("p", "O numero secreto é menor")
@@ -21,7 +24,7 @@ function verificarChute() {
       } else {
         exibirtextonatela("p", "O numero secreto é maior")
       }
-
+     tentativas++
       
     }
   
@@ -29,6 +32,8 @@ function verificarChute() {
   }
 
   
+
+
 
 
 function gerarNumeroSecreto(){
